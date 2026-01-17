@@ -1,0 +1,247 @@
+/* Base Styles */
+:root {
+    --main-bg-color: #0d1117; /* Dark Grey/Black */
+    --accent-color: #00bcd4; /* Cyan/Electric Blue for glow */
+    --text-color: #ffffff;
+    --secondary-text-color: #a0a8b3;
+    --font-heading: 'Orbitron', sans-serif;
+    --font-body: 'Rajdhani', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--text-color);
+    background-color: var(--main-bg-color);
+    line-height: 1.6;
+    overflow-x: hidden; /* Horizontal scroll prevent */
+}
+
+/* Futuristic Background Vibe (Circuit Board Overlay) */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Circuit pattern image ya gradient + lines se bana sakte hain */
+    background-image: url('circuit-pattern-small.svg'); /* Replace with a repeating circuit pattern SVG/PNG */
+    background-size: cover;
+    opacity: 0.15; /* Thoda translucent rakhein */
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Glowing Effect Mixin (Important for futuristic feel) */
+.glow-text {
+    text-shadow: 0 0 5px var(--accent-color), 0 0 10px var(--accent-color);
+    color: var(--text-color);
+}
+
+/* Header Styling */
+.futuristic-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    border-bottom: 2px solid var(--accent-color);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo-text {
+    font-family: var(--font-heading);
+    font-size: 1.8em;
+    color: var(--accent-color);
+    letter-spacing: 2px;
+}
+
+.logo-subtext {
+    display: block;
+    font-size: 0.7em;
+    color: var(--secondary-text-color);
+    letter-spacing: 4px;
+    margin-top: -5px;
+}
+
+.futuristic-header nav a {
+    color: var(--text-color);
+    text-decoration: none;
+    margin-left: 30px;
+    font-size: 1.1em;
+    padding: 5px 0;
+    transition: color 0.3s, text-shadow 0.3s;
+}
+
+.futuristic-header nav a:hover {
+    color: var(--accent-color);
+    text-shadow: 0 0 8px var(--accent-color);
+}
+
+/* Hero Section */
+.hero-section {
+    height: 80vh; /* Viewport height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    /* Optional: Linear gradient with dark blue to dark gray */
+    background: linear-gradient(180deg, rgba(13,17,23,0.8) 0%, rgba(13,17,23,0.3) 100%);
+}
+
+.hero-content h1 {
+    font-family: var(--font-heading);
+    font-size: 3.5em;
+    font-weight: 700;
+    letter-spacing: 5px;
+}
+
+/* Services and Future Tech Sections */
+.services-section, .future-tech-section, .contact-section {
+    padding: 60px 5%;
+    text-align: center;
+}
+
+.services-section h2, .future-tech-section h2 {
+    font-family: var(--font-heading);
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    color: var(--accent-color);
+    text-shadow: 0 0 5px rgba(0, 188, 212, 0.5);
+}
+
+.services-section {
+    display: flex;
+    justify-content: space-around;
+    gap: 30px;
+    flex-wrap: wrap;
+    border-bottom: 1px dashed var(--secondary-text-color);
+    padding-bottom: 80px;
+}
+
+.service-category {
+    background-color: rgba(13, 17, 23, 0.7);
+    border: 1px solid var(--accent-color);
+    border-radius: 8px;
+    padding: 30px;
+    width: 45%; /* Desktop width */
+    max-width: 400px;
+    box-shadow: 0 0 15px rgba(0, 188, 212, 0.3); /* Subtle glow effect */
+}
+
+.service-category h3 {
+    font-family: var(--font-heading);
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    color: var(--accent-color);
+}
+
+.service-list ul {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+}
+
+.service-list ul li, .future-tech-list ul li {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 10px;
+    margin-bottom: 10px;
+    border-left: 3px solid var(--accent-color);
+    transition: background 0.3s;
+}
+
+.service-list ul li:hover, .future-tech-list ul li:hover {
+    background: rgba(0, 188, 212, 0.1);
+}
+
+/* Future Tech Styling */
+.future-tech-list {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.future-tech-list ul {
+    list-style: none;
+    padding: 0;
+}
+
+.future-tech-list ul li {
+    font-size: 1.1em;
+    padding-left: 20px;
+    text-align: center;
+}
+
+.future-tech-list .highlight {
+    color: #ff9800; /* Amber/Orange highlight */
+    text-shadow: 0 0 8px rgba(255, 152, 0, 0.5);
+}
+
+/* Contact Section Styling */
+.contact-section {
+    border-top: 2px solid var(--accent-color);
+    margin-top: 40px;
+}
+
+.contact-details a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 1.2em;
+    transition: color 0.3s, text-shadow 0.3s;
+}
+
+.contact-details a:hover {
+    color: var(--accent-color);
+    text-shadow: 0 0 10px var(--accent-color);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .futuristic-header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .futuristic-header nav {
+        margin-top: 10px;
+    }
+
+    .hero-content h1 {
+        font-size: 2.2em;
+        letter-spacing: 3px;
+    }
+
+    .services-section {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .service-category {
+        width: 90%;
+        max-width: none;
+    }
+}
+
+/* Keyframe for subtle breathing/pulsing glow effect on Hero Text */
+@keyframes pulseGlow {
+  0% {
+    text-shadow: 0 0 5px var(--accent-color), 0 0 10px var(--accent-color);
+  }
+  50% {
+    text-shadow: 0 0 10px var(--accent-color), 0 0 20px var(--accent-color);
+  }
+  100% {
+    text-shadow: 0 0 5px var(--accent-color), 0 0 10px var(--accent-color);
+  }
+}
+
+.hero-content h1.glow-text {
+  animation: pulseGlow 5s infinite alternate;
+}
