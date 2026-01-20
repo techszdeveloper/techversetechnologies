@@ -139,214 +139,245 @@ game design software, immersive experiences, touchless interfaces, mobile SDK de
       </div>
     </div><!-- End Page Title -->
 
-  <style>
-  body {
-    font-family: Poppins, sans-serif;
-    background: #f6f9fc;
-    margin: 0;
-    padding: 0;
-  }
 
-  .pricing-section {
-    text-align: center;
-    padding: 60px 20px;
-  }
+<style>
+    body {
+        font-family: 'Poppins', sans-serif;
+        background: #f4f7ff;
+        margin: 0;
+        padding: 0;
+    }
 
-  .pricing-section h2 {
-    font-size: 36px;
-    margin-bottom: 10px;
-  }
+    .pricing-header {
+        text-align: center;
+        padding: 70px 20px 40px;
+        color: #1a2b7b;
+    }
 
-  .pricing-section p {
-    color: #555;
-    max-width: 500px;
-    margin: 0 auto 25px;
-  }
+    .pricing-header h1 {
+        font-size: 48px;
+        font-weight: 700;
+    }
 
-  .toggle-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin: 25px 0;
-  }
+    .pricing-header p {
+        font-size: 16px;
+        opacity: 0.8;
+        margin-top: 10px;
+    }
 
-  .toggle-buttons button {
-    padding: 10px 30px;
-    border-radius: 25px;
-    border: none;
-    background: #eaf0f6;
-    cursor: pointer;
-    font-weight: 600;
-  }
+    .pricing-features-top {
+        text-align: center;
+        margin-bottom: 40px;
+        color: #1a2b7b;
+        font-size: 15px;
+    }
 
-  .toggle-buttons .active {
-    background: #17283b;
-    color: #fff;
-  }
+    .pricing-features-top span {
+        margin: 0 10px;
+    }
 
-  .pricing-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 25px;
-    margin-top: 30px;
-  }
+    .pricing-container {
+        max-width: 1300px;
+        margin: auto;
+        padding: 20px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 25px;
+    }
 
-  .card {
-    background: #fff;
-    border-radius: 15px;
-    padding: 30px 20px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-    transition: 0.3s ease;
-    position: relative;
-  }
+    .plan-card {
+        background: white;
+        padding: 35px;
+        border-radius: 30px;
+        border: 1px solid #dce1ff;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+        transition: 0.35s;
+        position: relative;
+    }
 
-  .card:hover {
-    transform: translateY(-5px);
-  }
+    .plan-card:hover {
+        transform: translateY(-12px);
+        box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+    }
 
-  .card.active-card {
-    border: 2px solid #17283b;
-  }
+    .plan-title {
+        font-size: 22px;
+        font-weight: 700;
+        color: #1a2b7b;
+    }
 
-  .tag {
-    background: #ffcc00;
-    padding: 5px 12px;
-    font-size: 12px;
-    border-radius: 5px;
-    display: inline-block;
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    font-weight: 600;
-  }
+    .plan-subtitle {
+        font-size: 14px;
+        color: #444;
+        margin-bottom: 20px;
+    }
 
-  .price {
-    font-size: 40px;
-    margin: 15px 0;
-  }
+    .plan-price {
+        font-size: 40px;
+        font-weight: 800;
+        color: #1a2b7b;
+        margin-top: 10px;
+    }
 
-  .price span {
-    font-size: 16px;
-    font-weight: 400;
-    color: #666;
-  }
+    .old-price {
+        text-decoration: line-through;
+        color: #888;
+        font-size: 18px;
+    }
 
-  ul {
-    text-align: left;
-    padding: 0;
-    margin: 20px 0;
-    list-style: none;
-  }
+    .save-tag {
+        background: #c6f6c6;
+        color: #2f7a2f;
+        padding: 3px 10px;
+        border-radius: 6px;
+        font-size: 12px;
+        font-weight: 600;
+        margin-left: 5px;
+    }
 
-  ul li {
-    margin: 8px 0;
-  }
+    ul {
+        list-style: none;
+        padding: 0;
+        margin-top: 25px;
+    }
 
-  .btn {
-    padding: 12px 22px;
-    width: 100%;
-    border: none;
-    border-radius: 8px;
-    background: #eaf0f6;
-    cursor: pointer;
-    font-weight: 600;
-  }
+    ul li {
+        margin: 12px 0;
+        font-size: 15px;
+        color: #1a2b7b;
+    }
 
-  .btn.highlight {
-    background: #17283b;
-    color: #fff;
-  }
+
+    .recommended {
+        position: absolute;
+        top: -12px;
+        right: 20px;
+        background: #b7c4ff;
+        color: #1a2b7b;
+        padding: 6px 15px;
+        border-radius: 8px;
+        font-size: 12px;
+        font-weight: 700;
+    }
+
+    .active-card {
+        border: 2px solid #1a2b7b;
+        box-shadow: 0 15px 35px rgba(0,0,0,0.18);
+    }
 </style>
-</head>
 
+</head>
 <body>
 
-<section class="pricing-section">
-  <h2>Pricing</h2>
-  <p>Sign up in less than 30 seconds. Try our 7-day free trial, upgrade anytime, no questions asked.</p>
+<div class="pricing-header">
+    <h1>Start for free and choose a plan anytime</h1>
+    <p>Select a plan that fits your business needs with Techverse Technologies.</p>
+</div>
 
-  <div class="toggle-buttons">
-    <button class="active" id="monthlyBtn">MONTHLY</button>
-    <button id="yearlyBtn">ANNUALLY</button>
-  </div>
+<div class="pricing-features-top">
+    <span>🌐 Custom Domain</span>
+    <span>⚡ Ultra-Fast Hosting</span>
+    <span>🤖 AI Tools for Automation</span>
+    <span>📞 24/7 Customer Support</span>
+</div>
 
-  <div class="pricing-cards">
+<div class="pricing-container">
 
-    <!-- Micro -->
-    <div class="card">
-      <h3>Micro</h3>
-      <h1 class="price" data-month="49" data-year="499">$49<span>/mo</span></h1>
-      <ul>
-        <li>✔ Cras sodales lobortis erat</li>
-        <li>✔ Vitae pellentesque diam</li>
-        <li>✔ Consequat sed tempus</li>
-      </ul>
-      <button class="btn">Sign Up Today</button>
+    <!-- BUSINESS ELITE -->
+    <div class="plan-card">
+        <div class="plan-title">LIGHT</div>
+        <div class="plan-subtitle">For startups & individuals</div>
+
+        <div class="plan-price">₹29,999</div>
+        <div>
+            <span class="old-price">₹60,000</span>
+            <span class="save-tag">Save 50%</span>
+        </div>
+
+        <ul>
+            <li>1 Page Landing Website</li>
+            <li>Mobile Responsive</li>
+            <li>Basic UI/UX</li>
+            <li>Contact Form</li>
+            <li>1 Business Email</li>
+            <li>Free SSL</li>
+            <li>Basic Speed Optimization</li>
+            <li>WhatsApp Chat Integration</li>
+            <li>2 Revisions</li>
+            <li>1 Month Support</li>
+        </ul>
     </div>
 
-    <!-- Small Business -->
-    <div class="card">
-      <h3>Small Business</h3>
-      <h1 class="price" data-month="99" data-year="999">$99<span>/mo</span></h1>
-      <ul>
-        <li>✔ Aliquet diam gravida</li>
-        <li>✔ Phasellus eu condimentum</li>
-        <li>✔ Metus non venenatis turpis</li>
-      </ul>
-      <button class="btn">Sign Up Today</button>
+    <!-- BUSINESS (RECOMMENDED) -->
+    <div class="plan-card active-card">
+        <div class="recommended">RECOMMENDED</div>
+
+        <div class="plan-title">CORE</div>
+        <div class="plan-subtitle">For small businesses</div>
+
+        <div class="plan-price">₹49,999</div>
+        <div>
+            <span class="old-price">₹1,00,000</span>
+            <span class="save-tag">Save 50%</span>
+        </div>
+
+        <ul>
+            <li><b>Includes everything in LIGHT +</b></li>
+            <li>5–7 Page Business Website</li>
+            <li>Modern UI/UX</li>
+            <li>Service Pages</li>
+            <li>Google Analytics Setup</li>
+            <li>Blog Module</li>
+            <li>5 Revisions</li>
+            <li>1 Month Support</li>
+        </ul>
     </div>
 
-    <!-- Professional (Recommended) -->
-    <div class="card active-card">
-      <div class="tag">RECOMMENDED</div>
-      <h3>Professional</h3>
-      <h1 class="price" data-month="219" data-year="2190">$219<span>/mo</span></h1>
-      <ul>
-        <li>✔ Donec enim nulla malesuada</li>
-        <li>✔ Sed venenatis vel, blandit vel</li>
-        <li>✔ Duis ultricies scelerisque</li>
-      </ul>
-      <button class="btn highlight">Sign Up Today</button>
+    <!-- CORE -->
+    <div class="plan-card">
+        <div class="plan-title">BUSINESS</div>
+        <div class="plan-subtitle">For growing brands & companies</div>
+
+        <div class="plan-price">₹69,999</div>
+        <div> 
+            <span class="old-price">₹1,00,000</span>
+            <span class="save-tag">Save 30%</span>
+        </div> 
+
+        <ul>
+            <li><b>Includes everything in CORE +</b></li>
+            <li>10–15 Page Professional Website</li>
+            <li>Custom UI/UX</li>
+            <li>Multi-Page Dynamic Website</li>
+            <li>Full CMS Integratione</li>
+            <li>Advanced SEO</li>
+            <li>On-Page + Technical SEO</li>
+            <li>Speed Optimization (90+ Score)</li>
+            <li>API Integrations</li>
+            <li>Booking System / Appointment System</li>
+            <li>Chatbot Integration</li>
+        </ul>
     </div>
 
-    <!-- Enterprise -->
-    <div class="card">
-      <h3>Enterprise</h3>
-      <h1 class="price" data-month="419" data-year="4190">$419<span>/mo</span></h1>
-      <ul>
-        <li>✔ Justo id molestie</li>
-        <li>✔ Nullam sodales justo fringilla</li>
-        <li>✔ Donec molestie neque urna</li>
-      </ul>
-      <button class="btn">Sign Up Today</button>
+    <!-- LIGHT -->
+    <div class="plan-card">
+        <div class="plan-title">BUSINESS ELITE</div>
+        <div class="plan-subtitle">For enterprises requiring full-scale solutions</div>
+
+        <div class="plan-price">₹90,000</div>
+
+        <ul>
+            <li><b>Includes everything in BUSINESS +</b></li>
+            <li>E-Commerce Website (100 Products)</li>
+            <li>LMS / School / Coaching Website</li>
+            <li>Hospital / Restaurant / Real Estate Websites</li>
+            <li>CRM Integration</li>
+            <li>Chatbot Integration</li>
+            <li>Priority Support (24/7)</li>
+        </ul>
     </div>
 
-  </div>
-</section>
-
-<script>
-  const monthlyBtn = document.getElementById("monthlyBtn");
-  const yearlyBtn = document.getElementById("yearlyBtn");
-  const prices = document.querySelectorAll(".price");
-
-  monthlyBtn.addEventListener("click", () => {
-    monthlyBtn.classList.add("active");
-    yearlyBtn.classList.remove("active");
-
-    prices.forEach((p) => {
-      p.innerHTML = `$${p.dataset.month}<span>/mo</span>`;
-    });
-  });
-
-  yearlyBtn.addEventListener("click", () => {
-    yearlyBtn.classList.add("active");
-    monthlyBtn.classList.remove("active");
-
-    prices.forEach((p) => {
-      p.innerHTML = `$${p.dataset.year}<span>/yr</span>`;
-    });
-  });
-</script>
+</div>
 
 <!-- Call To Action Section -->
     <section id="call-to-action" class="call-to-action section dark-background">
